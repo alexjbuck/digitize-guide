@@ -1,1 +1,6 @@
 site_name: Digitize Guide
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: yellow
