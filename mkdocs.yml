@@ -4,3 +4,11 @@ theme:
   palette:
     scheme: slate
     primary: yellow
+nav:
+  - Getting Started: 'index.md'
+  - 'Step 0.md'
+  - 'Step 1.md'
+  - 'Step 2.md'
+  - 'Step 3.md'
+  - 'Step 4.md'
+  - 'Gotchas.md'
