@@ -6,7 +6,7 @@ This references and should not supercede the [Digitize Tutorial](https://conflue
 
 > A common error while getting started is finding that you do not have the permission to access a site, e.g. code.il2.dso.mil or jira.il2.dso.mil etc... You should contact help@dsop.io to get a ticket created for you.
 
-## Step 0: IL2 Mattermost
+# Step 0: IL2 Mattermost
 
 You will need to log in to the Platform One hosted IL2 Mattermost server: <https://chat.il2.dso.mil/>.
 
@@ -14,7 +14,7 @@ You will need to log in to the Platform One hosted IL2 Mattermost server: <https
 
 >_Learn how to register your account with Platform One [here](https://login.dso.mil/)._
 
-## Step 1: Request a new Digitize project
+# Step 1: Request a new Digitize project
 
 When you first join the IL2 Mattermost server you will enter the `welcome` team, and the `Town Square` channel within that.
 
@@ -34,7 +34,7 @@ In the channel header there will be a link to `Request a new Digitize Repository
 
 If you do not hear a response within a working day or two, you can post in the `Digitize - Public` channel and ask for help.
 
-## Step 2: Configure your repository
+# Step 2: Configure your repository
 
 You will likely receive a DM in Mattermost with the link to your initialized repository. If your project was named `my-project`, expect the repository will be located at: `https://code.il2.dso.mil/tron/products/dod-open-source/digitize/my-project`.
 
@@ -42,7 +42,7 @@ Open the [Digitize Tutorial](https://confluence.il2.dso.mil/display/puckboardhel
 
 Expect that you will adjust several CI/CD settings and add several environment variables. Precisely which you need to set will depend on what type of site you are building. 
 
-### Build Tools
+## Build Tools
 
 The guide is designed for a React App, but you can use the following systems to build your site:
 
@@ -54,7 +54,7 @@ The guide is designed for a React App, but you can use the following systems to 
 
 > The available CI/CD pipeline config files are viewable on the Digitize repository [here](https://code.il2.dso.mil/tron/products/digitize/digitize-pipeline).
 
-### Env Variables
+## Env Variables
 
 The following environment variables are required for the CI/CD pipeline to run:
 
@@ -66,7 +66,7 @@ The following environment variables are required for the CI/CD pipeline to run:
 - DIGITIZE_IL_TYPE => IL4, Digitize only supports IL4 deployment at this time.
 - SKIP_E2E_TEST => Set to true to skip running e2e tests. They're broken right now.
 
-### Protected Branches
+## Protected Branches
 
 This was the weird thing for me.
 
@@ -88,17 +88,17 @@ This forces a branch-naming convention because your branches must comply with th
 
 > **Recommendation**: Allow Maintainers to merge and Developers+Maintainers to push.
 
-### React specific
+## React specific
 
 You need to add a `homepage` field to your `package.json` file and set its value to `"."`. This is required for running the React App in a nested path.
 
 **Congratulations**, your repository should be ready to begin building your site!
 
-## Step 3: Configure your development environment
+# Step 3: Configure your development environment
 
 There are a few things you need to do to get your development environment ready to work with IL2 GitLab.
 
-### GPG signing
+## GPG signing
 
 **THIS IS A CHALLENGE ON GFE DEVICES**. I do not yet have a good solution.
 
@@ -108,7 +108,7 @@ GPG keys in GitLab are connected with your user profile, not a specific reposito
 
 GitLab has a help page for signing commits with GPG [here](https://code.il2.dso.mil/help/user/project/repository/gpg_signed_commits/index.md). I will not repeat these steps here.
 
-### Personal Access Token
+## Personal Access Token
 
 By far the easiest way to push commits to the [code.il2.dso.mil](code.il2.dso.mil) repository is to use a personal access token.
 
@@ -120,7 +120,7 @@ You will give the token a name, this is just so you can differentiate it from a 
 
 When you create the token, you will be presented the text string that is your personal access token.
 
-#### Simplifying login
+## Simplifying login
 
 There are many ways to manage personal access tokens ([e.g.](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git)). A way to simplify this is to prepend the token to the `git remote` url so that your pushes are automatically authenticated. If you do not, you should get a prompt asking for the token value when you attempt to push. 
 
@@ -128,17 +128,17 @@ There are many ways to manage personal access tokens ([e.g.](https://docs.github
 
 **CONGRATULATIONS**, your development environment should be ready to go!
 
-### Other pieces for your workstation
+## Other pieces for your workstation
 
 If you're developing and use the react/npm toolchain, you will want to have `node.js` and `npm` installed so you can preview your app locally. There are numerous tutorials available for how to do this.
 
-## Step 4: Get a Scratch Space assigned
+# Step 4: Get a Scratch Space assigned
 
 Scratch space is a server-side key-value store that allows for data persistence. It is part of the Tron Common UI API. 
 
 You need to post in the Tron/Arcade channel to get a Scratch Space assigned to you. You will be the `SCRATCH_ADMIN` for the scratch space.
 
-## Gotchas
+# Gotchas
 
 match your GPG key exactly to the email address that you use to sign in to code.il2.dso.mil.
 user.name
@@ -146,13 +146,13 @@ user.email
 
 git config --local user.signingkey <your key>
 
-### Node.js version
+## Node.js version
 
 The build will run using Node.js v16.3.0. I ran into issues because I originally built my project locally using `npx create-react-app` while using `node18` and `React 18`. This got messy.
 
 **Better Solution**: Clone the provided repo to your local machine and start from there. That is a version that will successfully build with the CI/CD pipeline.
 
-## Dockerized Development
+# Dockerized Development
 
 This is an alternative to setting up your local environment. Consider this when using anything other than vanilla JS/HTML/CSS.
 
