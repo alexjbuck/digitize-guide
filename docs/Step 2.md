@@ -32,7 +32,7 @@ The following environment variables are required for the CI/CD pipeline to run:
 
 ## Protected Branches
 
-This was the weird thing for me.
+This was the weird thing for me at first.
 
 > Reference: [GitLab protected branch docs](https://docs.gitlab.com/ee/user/project/protected_branches.html).
 
@@ -42,9 +42,9 @@ The full pipeline can **only** be used on your `master` branch.
 
 The mini pipelines will **only** run on protected branches.
 
-You can protect a specific branch, but that is cumbersome. GitLab lets you define a pattern with wildcard matching that will match the branch name and then protect that branch. For example a branch called `fix/fix-rendering-issue` would be protected with the pattern `fix/*`.
+This is why you need protected branches. Unprotected branches cannot run pipelines and cannot merge into `master`.
 
-Furthermore, you cannot merge a non-protected branch into `master`.
+You can protect a specific branch, but that is cumbersome. GitLab lets you define a pattern with wildcard matching that will match the branch name and then protect that branch. For example a branch called `fix/fix-rendering-issue` would be protected with the pattern `fix/*`.
 
 This forces a branch-naming convention because your branches must comply with these patterns otherwise they will not build or merge.
 
