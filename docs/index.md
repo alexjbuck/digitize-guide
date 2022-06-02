@@ -151,3 +151,28 @@ git config --local user.signingkey <your key>
 The build will run using Node.js v16.3.0. I ran into issues because I originally built my project locally using `npx create-react-app` while using `node18` and `React 18`. This got messy.
 
 **Better Solution**: Clone the provided repo to your local machine and start from there. That is a version that will successfully build with the CI/CD pipeline.
+
+## Dockerized Development
+
+This is an alternative to setting up your local environment. Consider this when using anything other than vanilla JS/HTML/CSS.
+
+This will take advantage of VS Code's Docker extension and ability to run within a docker container.
+
+First you'll create a Dockerfile in your project.
+
+Example:
+
+```dockerfile
+FROM node:16.15.0
+ENV NODE_ENV=development
+WORKDIR /usr/src/app
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+RUN npm install --silent && mv node_modules ../
+COPY . .
+EXPOSE 3000
+RUN chown -R node /usr/src/app
+USER node
+CMD ["npm", "start"]
+```
+
+Then in VS Code you use the command palette to `Remote-Container: Open folder in container...` Then select your Dockerfile as the basis for the container. Your container image will be built and then VS Code will reopen, but this time from within the container. When you run `npm run start` it should automatically forward the port to your local machine. If not, there is a PORTS tab next to the terminal where you can manually add the necessary port forwarding.
