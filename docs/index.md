@@ -4,7 +4,7 @@ This references and should not supercede the [Digitize Tutorial](https://conflue
 
 > If at any point you get stuck, you can email help@dsop.io to get help.
 
-> A common error while getting started is finding that you do not have the permission to access a site, e.g. code.il2.dso.mil or jira.il2.dso.mil etc... You should contact help@dsop.io to get a ticket created for you.
+> A common error while getting started is finding that you do not have the permission to access a site, e.g. code.il2.dso.mil or jira.il2.dso.mil etc... You should contact help@dsop.io to get a ticket created for you in support of your Digitize project.
 
 # Step 0: IL2 Mattermost
 
