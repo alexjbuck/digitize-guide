@@ -1,5 +1,6 @@
 # Digitize Guide
-[![Guide](https://github.com/alexjbuck/digitize-guide/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://alexjbuck.github.io/digitize-guide)
+
+[![Docs](https://github.com/alexjbuck/digitize-guide/actions/workflows/Docs.yml/badge.svg)](https://alexjbuck.github.io/digitize-guide)
 
 A guide to getting started on Tron Digitize for beginners.
 
