@@ -109,6 +109,19 @@ When you create the token, you will be presented the text string that is your pe
 ## Simplifying login
 
 **I NEED TO CHECK THIS MAY NOT BE REQUIRED**
+**THIS IS NOT GOOD PRACTICE AS YOUR PAT IS STORED IN PLAINTEXT**
+This is a better option for **Linux**
+```shell
+git config --global credential.helper libsecret
+```
+and for **Windows** (!!untested, could be wincred instead of manager, reference this [stack overflow thread](https://stackoverflow.com/questions/5343068/is-there-a-way-to-cache-https-credentials-for-pushing-commits/18362082#18362082)!!)
+```shell
+git config credential.helper manager
+```
+and for **OS X**
+```shell
+git config --global credential.helper osxkeychain
+```
 
 There are many ways to manage personal access tokens ([e.g.](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git)). A way to simplify this is to prepend the token to the `git remote` url so that your pushes are automatically authenticated. If you do not, you should get a prompt asking for the token value when you attempt to push. 
 

@@ -6,12 +6,14 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-material build"
+            "command": "docker run --rm -it -v ${PWD}:/docs squidfunk/mkdocs-material build",
+            "problemMatcher": []
         },
         {
             "label": "start",
             "type": "shell",
-            "command": "docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material"
+            "command": "docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material",
+            "problemMatcher": []
         }
     ]
 }
