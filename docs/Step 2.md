@@ -1,8 +1,11 @@
 # Step 2: Configure your repository
 
-You will likely receive a DM in Mattermost with the link to your initialized repository. If your project was named `my-project`, expect the repository will be located at: `https://code.il2.dso.mil/tron/products/dod-open-source/digitize/my-project`.
+You will likely receive a DM in Mattermost with the link to your initialized repository. If your project was named `my-project`, expect the repository will be located at: 
+```
+https://code.il2.dso.mil/tron/products/dod-open-source/digitize/my-project
+```
 
-Open the [Digitize Tutorial](https://confluence.il2.dso.mil/display/puckboardhelp/Common+API%3A+How+to+use+your+Scratch+Space+in+a+Digitize+Application) guide to learn how to configure your repository.
+The [Digitize Tutorial](https://confluence.il2.dso.mil/display/puckboardhelp/Common+API%3A+How+to+use+your+Scratch+Space+in+a+Digitize+Application) provides a good guide to learn how to configure your repository.
 
 Expect that you will adjust several CI/CD settings and add several environment variables. Precisely which you need to set will depend on what type of site you are building. 
 
@@ -16,13 +19,15 @@ The guide is designed for a React App, but you can use the following systems to 
 - [mkdocs](https://code.il2.dso.mil/tron/products/digitize/digitize-pipeline/-/blob/master/mkdocs.yml)
 - [hugo](https://code.il2.dso.mil/tron/products/digitize/digitize-pipeline/-/blob/master/hugo.yml)
 
-> The available CI/CD pipeline config files are viewable on the Digitize repository [here](https://code.il2.dso.mil/tron/products/digitize/digitize-pipeline).
+!!!help
+    The available CI/CD pipeline config files are viewable on the Digitize repository [here](https://code.il2.dso.mil/tron/products/digitize/digitize-pipeline).
 
 ## Env Variables
 
 The following environment variables are required for the CI/CD pipeline to run:
 
-> Reference the [Digitize Tutorial](https://confluence.il2.dso.mil/display/puckboardhelp/Common+API%3A+How+to+use+your+Scratch+Space+in+a+Digitize+Application) for details and a more complete discussion of these environment variables.
+!!!help
+    The [Digitize Tutorial](https://confluence.il2.dso.mil/display/puckboardhelp/Common+API%3A+How+to+use+your+Scratch+Space+in+a+Digitize+Application) for details and a more complete discussion of these environment variables.
 
 - BUILD_OUTPUT_DIR => Required for npm, yarn, mkdocs, hugo
 - DIGITIZE_DEPLOYMENT_TYPE => branch or tag
@@ -34,7 +39,8 @@ The following environment variables are required for the CI/CD pipeline to run:
 
 This was the weird thing for me at first.
 
-> Reference: [GitLab protected branch docs](https://docs.gitlab.com/ee/user/project/protected_branches.html).
+!!!help
+    [GitLab protected branch docs](https://docs.gitlab.com/ee/user/project/protected_branches.html).
 
 The idea is that there are **two** types of pipelines. Full Staging/Deployment pipleines and a mini-pipeline for branches. The only difference is that the mini-pipeline does not push to staging or production.
 
@@ -48,12 +54,15 @@ You can protect a specific branch, but that is cumbersome. GitLab lets you defin
 
 This forces a branch-naming convention because your branches must comply with these patterns otherwise they will not build or merge.
 
-> **Recommendation**: Protect patterns `fix/*` and `feature/*` for your branches. This lets you work on new capabilities within the `feature` namespace and bug fixes within the `fix` namespace.
+!!!tip 
+    Protect patterns `fix/*` and `feature/*` for your branches. This lets you work on new capabilities within the `feature` namespace and bug fixes within the `fix` namespace.
 
-> **Recommendation**: Allow Maintainers to merge and Developers+Maintainers to push.
+!!!tip
+    Allow Maintainers to merge and Developers+Maintainers to push.
 
 ## React specific
 
 You need to add a `homepage` field to your `package.json` file and set its value to `"."`. This is required for running the React App in a nested path.
 
-**Congratulations**, your repository should be ready to begin building your site!
+!!!success "Congratulations"
+    Your repository should be ready to begin building your site!

@@ -59,15 +59,14 @@ The solution is to use `git config --local` when setting values. This will let y
 
 The command you'll need to use is the following:
 
-```shell
-git config user.name 'First Last'
-```
-
-or 
-
-```shell
-git config --local user.name 'First Last'
-```
+=== "Global"
+      ```shell
+      git config user.name 'First Last'
+      ```
+=== "Local"
+      ```shell
+      git config --local user.name 'First Last'
+      ```
 
 depending on your global/local preference.
 
@@ -110,24 +109,26 @@ When you create the token, you will be presented the text string that is your pe
 
 **I NEED TO CHECK THIS MAY NOT BE REQUIRED**
 **THIS IS NOT GOOD PRACTICE AS YOUR PAT IS STORED IN PLAINTEXT**
-This is a better option for **Linux**
-```shell
-git config --global credential.helper libsecret
-```
-and for **Windows** (!!untested, could be wincred instead of manager, reference this [stack overflow thread](https://stackoverflow.com/questions/5343068/is-there-a-way-to-cache-https-credentials-for-pushing-commits/18362082#18362082)!!)
-```shell
-git config credential.helper manager
-```
-and for **OS X**
-```shell
-git config --global credential.helper osxkeychain
-```
+=== "Linux"
+      ```shell
+      git config --global credential.helper libsecret
+      ```
+=== "Windows"
+      ```shell
+      git config --global credential.helper manager
+      ```
+=== "OS X"
+      ```shell
+      git config --global credential.helper osxkeychain
+      ```
+(!!Windows untested, could be wincred instead of manager, reference this [stack overflow thread](https://stackoverflow.com/questions/5343068/is-there-a-way-to-cache-https-credentials-for-pushing-commits/18362082#18362082)!!)
 
 There are many ways to manage personal access tokens ([e.g.](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git)). A way to simplify this is to prepend the token to the `git remote` url so that your pushes are automatically authenticated. If you do not, you should get a prompt asking for the token value when you attempt to push. 
 
 > Example: Your token is `123abc` and your repository is `code.il2.dso.mil/tron/products/dod-open-source/digitize/my-project.git` then you would set your remote to `https://oath2:123abc@code.il2.dso.mil/tron/products/dod-open-source/digitize/my-project.git`.
 
-**CONGRATULATIONS**, your development environment should be ready to go!
+!!!success "Congratulations"
+      Your development environment should be ready to go!
 
 ## Other pieces for your workstation
 
