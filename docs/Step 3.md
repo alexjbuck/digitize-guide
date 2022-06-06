@@ -109,6 +109,8 @@ When you create the token, you will be presented the text string that is your pe
 
 **I NEED TO CHECK THIS MAY NOT BE REQUIRED**
 **THIS IS NOT GOOD PRACTICE AS YOUR PAT IS STORED IN PLAINTEXT**
+
+**Best practice** Use a credential helper. Read [here](https://www.softwaredeveloper.blog/git-credential-storage-libsecret) for Linux and creating libsecret.
 === "Linux"
       ```shell
       git config --global credential.helper libsecret
